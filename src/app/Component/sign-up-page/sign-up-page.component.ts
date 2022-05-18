@@ -29,7 +29,7 @@ export class SignUpPageComponent implements OnInit {
       userName:this.userName,
       password:this.password,
       userType:this.userType,
-      employeeId:"EM001"
+      // employeeId:"EM001"
     }
     if((this.userType && this.password && this.userName && this.contact && this.email && this.name) != ""){
       this.userService.create(data)
