@@ -14,6 +14,7 @@ export class SignUpPageComponent implements OnInit {
   password: string="";
   userType: string="";
   users:any=[];
+  cnfPassword: string="";
 
   constructor(private userService: UserService) { }
 
@@ -32,15 +33,19 @@ export class SignUpPageComponent implements OnInit {
       // employeeId:"EM001"
     }
     if((this.userType && this.password && this.userName && this.contact && this.email && this.name) != ""){
-      this.userService.create(data)
-        .subscribe(
-          response => {
-            console.log(response);
-            alert("User Added Successfully...");
-          },
-          error => {
-            console.log(error);
-          });
+      if(this.password===this.cnfPassword) {
+        this.userService.create(data)
+          .subscribe(
+            response => {
+              console.log(response);
+              alert("User Added Successfully...");
+            },
+            error => {
+              console.log(error);
+            });
+      }else{
+        alert("Wrong password...");
+      }
     }else{
       alert("Empty fields...");
     }
