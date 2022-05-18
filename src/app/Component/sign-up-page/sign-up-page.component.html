@@ -1,0 +1,23 @@
+<div class="signin-page">
+  <div class="form">
+
+    <div class="signin-form">
+      <div class="form-check">
+        <input type="radio" class="radio"  id="radio1" name="optradio" value="Admin" (change)="valueChange($event)">
+        <label class="radio" id="label1" for="radio1">Admin</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="radio" id="radio2" name="optradio" value="Customer" (change)="valueChange($event)">
+        <label class="radio" id="label2" for="radio2">Customer</label>
+      </div>
+      <input type="text" placeholder="name" id="name" [(ngModel)]="name" />
+      <input type="text" placeholder="email" [(ngModel)]="email"/>
+      <input type="text" placeholder="mobile number" [(ngModel)]="contact"/>
+      <input type="text" placeholder="username" [(ngModel)]="userName"/>
+      <input type="password" placeholder="password" [(ngModel)]="password"/>
+
+      <button (click)="saveCustomer()">Sign Up</button>
+      <h2 class="message">Already registered? <a routerLink="/login">Sign In</a></h2>
+    </div>
+  </div>
+</div>
