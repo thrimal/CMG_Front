@@ -24,8 +24,8 @@ export class UserService {
     return this.http.post<any>(baseUrl,data);
   }
 
-  getUser(userName: string,password:any) {
-    return this.http.get<any>(`${baseUrl}/${userName}/${password}`);
+  getUser(userName: string) {
+    return this.http.get<any>(`${baseUrl}/${userName}`);
   }
 
   update(id: any, data: any) {

@@ -18,16 +18,18 @@ export class LoginPageComponent implements OnInit {
 
   getUserByUserNameAndPassword() {
     if((this.userName && this.password) != ""){
-      this.userService.getUser(this.userName,this.password)
+      this.userService.getUser(this.userName)
         .subscribe(response => {
           if(response != null){
-            if(response.userName==this.userName && response.password== this.password){
-              console.log(response);
-              this.userService.userType=response.userType;
-              console.log(this.userService.userType);
-              this.router.navigate(['/user']);
-            }else{
-              alert("User not found...Please register first...");
+            for (const res of response) {
+              if(res.userName==this.userName && res.password== this.password){
+                console.log(res);
+                this.userService.userType=res.userType;
+                console.log(this.userService.userType);
+                this.router.navigate(['/user']);
+              }else{
+                alert("User not found...Please register first...");
+              }
             }
           }else{
             alert("User not found...Please register first...");
