@@ -22,15 +22,15 @@ export class LoginPageComponent implements OnInit {
         .subscribe(response => {
           if(response != null){
             for (const res of response) {
-              if(res.userName==this.userName && res.password== this.password){
+              if(res.userName===this.userName && res.password===this.password){
                 console.log(res);
                 this.userService.userType=res.userType;
                 console.log(this.userService.userType);
                 this.router.navigate(['/user']);
-              }else{
-                alert("User not found...Please register first...");
+                return;
               }
             }
+            alert("User not found...Please register first...");
           }else{
             alert("User not found...Please register first...");
           }
